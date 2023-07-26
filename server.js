@@ -8,10 +8,15 @@ import authRoutes from './routes/authRoute.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config(); //to load the environment variables from the .env file
 
 connectDB(); //establish connection to the MongoDB database
+
+//ES Module fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express(); //creates an instance of the express application, app represents express server
 
