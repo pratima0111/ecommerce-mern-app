@@ -1,18 +1,21 @@
-import React from 'react'
-import Layout from '../components/Layout/Layout'
-import { useSearch } from '../context/search'
+import React from 'react';
+import Layout from '../components/Layout/Layout';
+import { useSearch } from '../context/search';
 
 const Search = () => {
-
-    const [values, setValues] = useSearch();
+  const [values, setValues] = useSearch();
 
   return (
     <Layout title={'Search Results'}>
-        <div className="container">
-            <div className="text-center">
-                <h1>Search Results</h1>
-                <h6>{values?.results.length < 1 ? "No Products Found" : `Found ${values?.results.length}`}</h6>
-                <div className='d-flex flex-wrap'>
+      <div className='container search-box'>
+        <div className='text-center mt-4'>
+          <h1>Search Results</h1>
+          <h6>
+            {values?.results.length < 1
+              ? 'No Products Found'
+              : `Found ${values?.results.length}`}
+          </h6>
+          <div className='d-flex flex-wrap'>
             {values?.results.map((p) => (
               <div className='card m-2' style={{ width: '18rem' }} key={p._id}>
                 <img
@@ -30,11 +33,10 @@ const Search = () => {
               </div>
             ))}
           </div>
-            </div>
         </div>
-      
+      </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
