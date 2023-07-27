@@ -24,29 +24,38 @@ const Products = () => {
 
   return (
     <Layout title={'Products'}>
-      <div className='row m-3 p-3'>
-        <div className='col-md-3'>
-          <AdminMenu />
-        </div>
-        <div className='col-md-9 w-75'>
-          <h1 className='text-center'>All Products</h1>
-          <div className='d-flex '>
-            {products?.map((p) => (
-              <Link to={`/dashboard/admin/product/${p.slug}`} className='product-link'>
-                <div
-                  className='card m-2'
-                  style={{ width: '18rem' }}
-                  key={p._id}
+      <div className='container-fluid'>
+        <div className='row dashboard p-3'>
+          <div className='col-md-3'>
+            <AdminMenu />
+          </div>
+          <div className='col-md-9 text-center'>
+            <h1 className='text-center'>All Products</h1>
+            <div className='d-flex flex-wrap justify-content-center'>
+              {products?.map((p) => (
+                <Link
+                  to={`/dashboard/admin/product/${p.slug}`}
+                  className='product-link'
                 >
-                  <img src={`/api/product/product-photo/${p._id}`} className='card-img-top' alt={p.name} />
-                  <div className='card-body'>
-                    <h5 className='card-title'>{p.name}</h5>
-                    <p className='card-text'>{p.description}</p>
-                    <p className='card-text'>${p.price}</p>
+                  <div
+                    className='card m-2'
+                    style={{ width: '18rem' }}
+                    key={p._id}
+                  >
+                    <img
+                      src={`/api/product/product-photo/${p._id}`}
+                      className='card-img-top'
+                      alt={p.name}
+                    />
+                    <div className='card-body'>
+                      <h5 className='card-title'>{p.name}</h5>
+                      <p className='card-text'>{p.description}</p>
+                      <p className='card-text'>${p.price}</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

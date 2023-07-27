@@ -116,10 +116,10 @@ const HomePage = () => {
         width={'100%'}
       />
       {/* banner image */}
-      <div className='container-fluid row mt-3 home-page'>
-        <div className='col-md-3 filters'>
+      <div className='container-fluid row g-0 mt-3 home-page'>
+        <div className='container-fluid col-md-3 filters'>
           <h4 className='text-center'>Filter By Category</h4>
-          <div className='d-flex flex-column'>
+          <div className='d-flex flex-column justify-content-center'>
             {categories?.map((c) => (
               <Checkbox
                 key={c._id}
@@ -140,7 +140,7 @@ const HomePage = () => {
               ))}
             </Radio.Group>
           </div>
-          <div className='d-flex flex-column'>
+          <div className='d-flex flex-column mb-4'>
             <button
               className='btn btn-danger'
               onClick={() => window.location.reload()}
@@ -149,9 +149,9 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-        <div className='col-md-9 '>
+        <div className='col-md-9 justify-content-center'>
           <h1 className='text-center'>All Products</h1>
-          <div className='d-flex flex-wrap'>
+          <div className='d-flex flex-wrap justify-content-center'>
             {products?.map((p) => (
               <div className='card m-2' key={p._id}>
                 <img

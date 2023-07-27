@@ -87,23 +87,24 @@ const UpdateProduct = () => {
     }
   };
 
-  const handleDelete = async() => {
-    try{
-        let answer = window.prompt('Are you sure you want to delete this product?')
-        if (!answer) return;
-        const {data} = await axios.delete(`/api/product/delete-product/${id}`);
-        toast.success('Product deleted successfully')
-        navigate('/dashboard/admin/products')
-    }catch(error){
-      console.log(error)
-      toast.error('Something went wrong')
+  const handleDelete = async () => {
+    try {
+      let answer = window.prompt(
+        'Are you sure you want to delete this product?'
+      );
+      if (!answer) return;
+      const { data } = await axios.delete(`/api/product/delete-product/${id}`);
+      toast.success('Product deleted successfully');
+      navigate('/dashboard/admin/products');
+    } catch (error) {
+      console.log(error);
+      toast.error('Something went wrong');
     }
-  }
-
+  };
 
   return (
     <Layout title={'Dashboard: Update Product'}>
-      <div className='container-fluid m-3 p-3'>
+      <div className='container-fluid dashboard p-3'>
         <div className='row'>
           <div className='col-md-3'>
             <AdminMenu />
@@ -218,7 +219,7 @@ const UpdateProduct = () => {
                   UPDATE PRODUCT
                 </button>
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <button className='btn btn-danger' onClick={handleDelete}>
                   DELETE PRODUCT
                 </button>
